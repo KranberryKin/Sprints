@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { PageHandlerService } from '../page-handler.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-body',
@@ -9,9 +10,16 @@ import { PageHandlerService } from '../page-handler.service';
   styleUrl: './body.component.scss'
 })
 export class BodyComponent {
+  currentPage:string = "";
 
-  constructor(pageHandlerService: PageHandlerService){
-
+  
+  constructor(private pageHandlerService: PageHandlerService){
+    this.currentPage = pageHandlerService.getCurrentPage();
   }
 
+  ngOnInit(): void {
+    this.pageHandlerService.state$.subscribe((state) => {
+      this.currentPage = state;
+    });
+  }
 }

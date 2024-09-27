@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageHandlerService } from '../page-handler.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  Title = "Sprintz"
 
+  constructor(private pageHandlerService:PageHandlerService){
+  }
+
+  navigate(s:string){
+    this.pageHandlerService.setState(s)
+  }
 }

@@ -1,22 +1,28 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PageHandlerService {
-  Pages: string[] = [
+  pages: string[] = [
     "Home",
     "Sprintz",
     "Profile",
   ];
   currentPage: string = "Home";
-  constructor() { }
+  private stateSubject = new BehaviorSubject<string>(this.currentPage);
+  public state$ = this.stateSubject.asObservable();
+  
+  constructor() {
+
+   }
+
   getCurrentPage(): string{
-    return this.currentPage;
+      return this.currentPage;
   }
-  setCurrentPage(s:string):void{
-    if(this.Pages.findIndex(p => p = s) !== -1){
-      this.currentPage = s;
-    }
+  
+  setState(newState: string) {
+    this.stateSubject.next(newState);
   }
 }
