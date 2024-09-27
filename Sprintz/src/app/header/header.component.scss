@@ -10,6 +10,8 @@
 
     .header-left-side{
         display: flex;
+        font-size: 20px;
+        cursor: pointer;
         flex-direction: row;
     }
     .header-right-side{
@@ -17,7 +19,11 @@
         flex-direction: row;
         .header-selection{
             padding-right: 1rem;
+            font-size: 20px;
             cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 }

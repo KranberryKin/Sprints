@@ -12,9 +12,11 @@ export class HeaderComponent {
   Title = "Sprintz"
 
   constructor(private pageHandlerService:PageHandlerService){
+    
   }
 
   navigate(s:string){
     this.pageHandlerService.setState(s)
   }
+
 }
