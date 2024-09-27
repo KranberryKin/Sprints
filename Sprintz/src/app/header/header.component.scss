@@ -1,3 +1,23 @@
-.p{
-    margin: 0 !important;
+.header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 8vh;
+    background-color: forestgreen;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .header-left-side{
+        display: flex;
+        flex-direction: row;
+    }
+    .header-right-side{
+        display: flex;
+        flex-direction: row;
+        .header-selection{
+            padding-right: 1rem;
+            cursor: pointer;
+        }
+    }
 }
